@@ -41,7 +41,7 @@ table.amar tr {
 	<ul id="navc">
 	<li><a href="$PHP_SELF?mod=vip_panel"> داشبورد</a> </li>
 	<li><a href="$PHP_SELF?mod=vip_panel&action=add">افزودن پنل</a> </li>
-	<li><a href="$PHP_SELF?mod=vip_jahanpay"> اعضای VIP </a> </li>
+	<li><a href="$PHP_SELF?mod=vip_sn"> اعضای VIP </a> </li>
 	<li><a href="$PHP_SELF?mod=vip_panel&action=setting">تنظیمات</a> </li>
 	</ul>
 

@@ -72,12 +72,13 @@ $tableSchema[] = "CREATE TABLE IF NOT EXISTS `" . PREFIX . "_vip_sn` (
 $tableSchema[] = " CREATE TABLE IF NOT EXISTS `" . PREFIX . "_vip_setting` (
   `id` int(11) NOT NULL,
   `marchentid` varchar(60) NOT NULL,
+  `webservice` varchar(60) NOT NULL,
   `group_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 ";
-$tableSchema[] = "INSERT INTO `" . PREFIX . "_vip_setting` (`id`, `marchentid`, `group_id`) VALUES
-(1, '0000000-000000-000000-000000', 0);
+$tableSchema[] = "INSERT INTO `" . PREFIX . "_vip_setting` (`id`, `marchentid`,`webservice`, `group_id`) VALUES
+(1, '000000000000',1, 0);
 ";
 
 	@$db->query("ALTER TABLE `" . PREFIX . "_users` ADD `viptime_start` INT( 11 ) NOT NULL AFTER `news_num`,
@@ -106,19 +107,23 @@ echo <<<HTML
         <td style="padding:5px;" bgcolor="#FFFFFF">
 <table width="100%">
     <tr>
-        <td bgcolor="#EFEFEF" height="29" style="padding-left:10px;"><div class="navigation">پايان نصب</div></td>
+        <td bgcolor="#EFEFEF" height="29" style="padding-left:10px;"><div class="navigation">
+			<p align="center"><font face="Tahoma" size="2">پايان نصب</font></div></td>
     </tr>
 </table>
 <div class="unterline"></div>
 <table width="100%">
     <tr>
-        <td style="padding:2px;"><b>
-		عملیت نصب افزونه با موفقیت به پایان رسید. /
+        <td style="padding:2px;">
+		<p align="center"><font face="Tahoma" size="2"><b>
+		عمليات نصب با موفقيت به پايان رسيد
 		
 		<br />
 
-		» <a href="index.php?do=vip_user"> نمایش ماژول کاربران ویژه </a>
+		» <a href="index.php?do=vip_user">نمايش ماژول کاربران ويژه </a>
 		</b>
+        
+        </font>
         
         </td>
     </tr>
@@ -155,7 +160,9 @@ echo <<<HTML
         <td style="padding:5px;" bgcolor="#FFFFFF">
 <table width="100%">
     <tr>
-        <td bgcolor="#EFEFEF" height="29" style="padding-left:10px;"><div class="navigation"> &nbsp; VIP نصب افزونه </div></td>
+        <td bgcolor="#EFEFEF" height="29" style="padding-left:10px;"><div class="navigation"> 
+			<p align="center"><font face="Tahoma" size="2">&nbsp; VIP نصب افزونه
+			</font> </div></td>
     </tr>
 </table>
 <div class="unterline"></div>
@@ -165,20 +172,22 @@ echo <<<HTML
 		
 			<div style="line-height: 18px; padding: 5px; color: #505050;">
 			
+	<p align="center"><font face="Tahoma" size="2">
+			
 	<span style="color: #cc0000">	نصب نسخه 1 افزونه VIP  			/</span>
 			
 				
-				مواردی که باید قبل از نصب انجام دهید : 
+				مواردي که قبل از نصب بايد انجام دهيد : </font></p>
 				
-				<table border="0" width="50%" class="dstn_td" style="margin-top: 5px; letter-spacing: 2px; text-align: center; padding: 3px; direction: ltr;">
+				<table border="0" width="100%" class="dstn_td" style="margin-top: 5px; letter-spacing: 2px; text-align: center; padding: 3px; direction: ltr;">
 				  <tbody style="text-align: center; background: #eee;">
 					<tr>
-					 <td> سطح دسترسی </td>
-					 <td> مسیر شاخه و فایل </td>
+					 <td> <font face="Tahoma" size="2">سطح دسترسي </font> </td>
 					</tr>
 				  </tbody>
 					<tr>
-					 <td> جهت نصب نیازی به تغییر دسترسی نمی باشد. </td>
+					 <td> <font face="Tahoma" size="2">جهت نصب نياز به تغيير دسترسي نمي باشد.
+						</font> </td>
 					 
 					</tr>
 			</table>
@@ -187,7 +196,8 @@ echo <<<HTML
 		</td>
     </tr>
     <tr>
-        <td style="padding:2px;"><input type=hidden name=action value="setup"><input style="font: 8pt tahoma; padding: 3px;" type=submit value="شروع نصب »"></td>
+        <td style="padding:2px;"><input type=hidden name=action value="setup">
+		<p align="center"><input style="font: 8pt tahoma; padding: 3px;" type=submit value="شروع نصب »"></td>
     </tr>
 </table>
 </td>

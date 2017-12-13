@@ -42,7 +42,6 @@ echoheader("Offer","Vip ویژه");
   
     
 HTML;
-<?
 	
 	echo $end_table;
 echofooter();
@@ -71,8 +70,8 @@ echoheader("Offer","Vip ویژه");
 	echo $tabel_head;
 	menu_header();
 	
-	$db->query("SELECT * FROM ".PREFIX."_vip_jahanpay where `show`='1'");
-	$page_name="?mod=vip_jahanpay&order=page"; 
+	$db->query("SELECT * FROM ".PREFIX."_vip_sn where `show`='1'");
+	$page_name="?mod=vip_sn&order=page"; 
 	$start=$_GET['start'];
 	if(strlen($start) > 0 and !is_numeric($start)){
 	exit("Data Error");}
@@ -81,10 +80,10 @@ echoheader("Offer","Vip ویژه");
 	$this1 = $eu + $limit; 
 	$back = $eu - $limit; 
 	$next = $eu + $limit; 
-	$query2= $db->query("SELECT * FROM ".PREFIX."_vip_jahanpay where `show`='1' order by id desc");
+	$query2= $db->query("SELECT * FROM ".PREFIX."_vip_sn where `show`='1' order by id desc");
 	echo mysql_error();
 	$nume= $db->num_rows( $query2 );
-	$query_res = $db->query("SELECT * FROM ".PREFIX."_vip_jahanpay where `show`='1' order by id desc limit $eu, $limit");
+	$query_res = $db->query("SELECT * FROM ".PREFIX."_vip_sn where `show`='1' order by id desc limit $eu, $limit");
 	while ( $row = $db->get_row($query_res) ) {
 			$id = $row['id'];
 		$resuser = $db->super_query("SELECT * FROM ".PREFIX."_users where user_id='".$row['userid']."'");	
@@ -99,7 +98,7 @@ echoheader("Offer","Vip ویژه");
 		<td class=\"list\" style=\"padding:4px;\"> {$row['price']}</td>
 		<td class=\"list\" style=\"padding:4px;\"> {$row['au']}</td>
 		<td class=\"list\" style=\"padding:4px;\"> {$row['date']}</td>
-		<td class=\"list\" style=\"padding:4px;\"> <a href='$PHP_SELF?mod=vip_jahanpay&action=move&id=$row[userid]' title='انتقال دستی به گروه'> <img src=\"engine/skins/move.png\" align='absmiddle'> </a> </td>
+		<td class=\"list\" style=\"padding:4px;\"> <a href='$PHP_SELF?mod=vip_sn&action=move&id=$row[userid]' title='انتقال دستی به گروه'> Move </a> </td>
 		</tr>			
 		";	
 
@@ -122,7 +121,7 @@ echoheader("Offer","Vip ویژه");
 	$db->free();
 		
 	
-    $query = $db->query("SELECT * FROM ".PREFIX."_vip_jahanpay where `show`='1' order by id desc");		
+    $query = $db->query("SELECT * FROM ".PREFIX."_vip_sn where `show`='1' order by id desc");		
 	while ( $row = $db->get_row($query))  {
 		$resuser = $db->super_query("SELECT * FROM ".PREFIX."_users where user_id='".$row['userid']."'");	
 		$resplanvip = $db->super_query("SELECT * FROM ".PREFIX."_vip_panel where id='".$row['vip_panel']."'");	  

@@ -95,7 +95,6 @@ $setting_res = $db->super_query("SELECT * FROM ".PREFIX."_vip_setting where id =
             <td><input type="text" class="edit bk" value="$setting_res[marchentid]" dir=ltr name="marchent" size="22" /> </td>
         </tr>
 		
-
 		<tr>
         	<td width="130" height="25"> انتقال کاربران  :</td>
             <td><select name="group"> <option value="$setting_res[group_id]"> -- انتخاب نمایید -- </option> $option_group  </select> <span class=red> ( گروه کاربری که می خواهید پس از عضویت ویژه کاربر به آن انتقال پیدا نماید مشخص نمایید.) </span> </td>
@@ -123,7 +122,6 @@ echofooter();
 } elseif ( $action == "setting_save" ) {
 	
 	
-		
 	$db->query( "UPDATE " . PREFIX . "_vip_setting set `marchentid`='".$_POST['marchent']."' where id = '1'");
 	$db->query( "UPDATE " . PREFIX . "_vip_setting set `group_id`='".$_POST['group']."' where id = '1'");
 	msg( "error", "ذخیره", "<strong>تنظیمات</strong> با موفقیت ذخیره گردید.", "javascript:history.go(-1)" );
@@ -256,7 +254,7 @@ echoheader("Offer","Vip ویژه");
 		<td class=\"list\" style=\"padding:4px;\"> $row[id]</td>
 		<td class=\"list\" style=\"padding:4px;\"> {$row['name']}  </td>
 		<td class=\"list\" style=\"padding:4px;\"> {$row['price']}</td>
-		<td class=\"list\" style=\"padding:4px;\"> <a href='$PHP_SELF?mod=vip_panel&action=edit&id=$id' title='ویرایش'> <img src='engine/skins/images/edit_go.png' align='absmiddle'> </a> &nbsp;&nbsp; <a href='$PHP_SELF?mod=vip_panel&action=delete&id=$id' title='حذف'> <img src='engine/skins/images/remove.png' align='absmiddle'> </a></td>
+		<td class=\"list\" style=\"padding:4px;\"> <a href='$PHP_SELF?mod=vip_panel&action=edit&id=$id' title='ویرایش'> Edit </a> &nbsp;&nbsp; <a href='$PHP_SELF?mod=vip_panel&action=delete&id=$id' title='حذف'> Delete</a></td>
 		</tr>			
 		";	
 	}
